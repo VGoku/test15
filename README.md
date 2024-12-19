@@ -67,3 +67,4 @@ The database `auth.db3` includes a single `users` table:
 My Notes:
 npm i express-session
 npm i connect-session-knex
+try downgrading the version of connect-session-knex to v3 by going to the package.json and changing it to:     "connect-session-knex": "^3.0.1",
