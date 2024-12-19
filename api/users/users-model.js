@@ -1,5 +1,5 @@
 const db = require("../../data/db-config")
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 /**
   resolves to an ARRAY with all users, each user having { user_id, username }
  */
@@ -26,15 +26,11 @@ function findById(user_id) {
 /**
   resolves to the newly inserted user { user_id, username }
  */
-// async function add(user) {
-//   const [id] = await db("users").insert(user)
-//   return findById(id)
-// }
+
 async function add(user) {
-  const hashedPassword = await bcrypt.hash(user.password, 10); // Hash the password
-  const [id] = await db("users").insert({ ...user, password: hashedPassword }); // Insert with hashed password
-  return findById(id);
-}
+  const [id] = await db("users").insert(user)
+ return findById(id)
+ }
 
 // Don't forget to add these to the `exports` object so they can be required in other modules
 module.exports = {
